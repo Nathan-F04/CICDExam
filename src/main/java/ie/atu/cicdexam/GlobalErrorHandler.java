@@ -12,9 +12,10 @@ import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalErrorHandler extends RuntimeException {
-    Map<String,String> errorList = new HashMap<>();
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> showErrors(MethodArgumentNotValidException ex){
+        Map<String,String> errorList = new HashMap<>();
         for(FieldError error:ex.getFieldErrors()){
             String err_name= error.getField();
             String err_message = error.getDefaultMessage();

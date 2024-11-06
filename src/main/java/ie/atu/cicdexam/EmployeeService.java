@@ -8,14 +8,14 @@ import java.util.NoSuchElementException;
 
 @Service
 public class EmployeeService {
-    private final List<Employee> myList = new ArrayList<>();
+    private List<Employee> myList = new ArrayList<>();
 
     public List<Employee> addEmployeeService(Employee employee){
         myList.add(employee);
         return myList;
     }
 
-    public List<Employee> retrieveEmployeeService(Employee employee, String employeeCode){
+    public List<Employee> retrieveEmployeeService(String employeeCode){
         for(Employee e: myList){
             if(e.getEmployeeCode() == employeeCode){
                 return myList;
@@ -36,12 +36,8 @@ public class EmployeeService {
         }throw new NoSuchElementException();
     }
 
-    public List<Employee> deleteEmployeeService(Employee employee, String employeeCode){
-        for(Employee e: myList){
-            if(e.getEmployeeCode() == employeeCode){
-                myList.remove(employee);
-                return myList;
-            }
-        }throw new NoSuchElementException();
+    public List<Employee> deleteEmployeeService(String employeeCode){
+       myList.removeIf(e->e.getEmployeeCode()==employeeCode);
+       return myList;
     }
 }

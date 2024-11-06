@@ -21,6 +21,6 @@ public class Employee {
     private String position;
     @Positive(message="You must enter a positive Salary")
     private int salary;
-    @PastOrPresent(message="Date must be today or earlier")
+    //@PastOrPresent(message="Date must be today or earlier")
     private String dateOfJoining;
 }
