@@ -17,7 +17,7 @@ public class Employee {
     private String name;
     @Email(message="Please enter a valid Email")
     private String email;
-    @Pattern(regexp="^Manager$" | regexp="^Analyst$" | regexp="^Developer$",message="Must be a Manager, Developer or Analyst.")
+    //@Pattern(regexp="^Manager$" | regexp="^Analyst$" | regexp="^Developer$",message="Must be a Manager, Developer or Analyst.")
     private String position;
     @Positive(message="You must enter a positive Salary")
     private int salary;
