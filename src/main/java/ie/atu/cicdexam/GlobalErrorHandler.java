@@ -13,14 +13,46 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 public class GlobalErrorHandler extends RuntimeException {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotFoundException.class)
     public ResponseEntity<Map<String,String>> showErrors(MethodArgumentNotValidException ex){
-        Map<String,String> errorList = new HashMap<>();
+        Map<String,String> errorList1 = new HashMap<>();
         for(FieldError error:ex.getFieldErrors()){
             String err_name= error.getField();
             String err_message = error.getDefaultMessage();
-            errorList.put(err_name, err_message);
+            errorList1.put(err_name, err_message);
         }
-        return ResponseEntity.status(400).body(errorList);
+        return ResponseEntity.status(400).body(errorList1);
+    }
+
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ResponseEntity<Map<String,String>> showErrors(EmployeeNotFoundException ex){
+        Map<String,String> errorList2 = new HashMap<>();
+        for(FieldError error:ex.getFieldErrors()){
+            String err_name= error.getField();
+            String err_message = error.getDefaultMessage();
+            errorList2.put(err_name, err_message);
+        }
+        return ResponseEntity.status(400).body(errorList2);
+    }
+
+    @ExceptionHandler(InvalidEmployeeDataException.class)
+    public ResponseEntity<Map<String,String>> showErrors(InvalidEmployeeDataException ex){
+        Map<String,String> errorList3 = new HashMap<>();
+        for(FieldError error:ex.getFieldErrors()){
+            String err_name= error.getField();
+            String err_message = error.getDefaultMessage();
+            errorList3.put(err_name, err_message);
+        }
+        return ResponseEntity.status(400).body(errorList3);
+    }
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<Map<String,String>> showErrors(DuplicateEmailException ex){
+        Map<String,String> errorList4 = new HashMap<>();
+        for(FieldError error:ex.getFieldErrors()){
+            String err_name= error.getField();
+            String err_message = error.getDefaultMessage();
+            errorList4.put(err_name, err_message);
+        }
+        return ResponseEntity.status(400).body(errorList4);
     }
 }

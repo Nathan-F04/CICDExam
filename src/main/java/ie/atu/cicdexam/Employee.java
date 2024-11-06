@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Employee {
     @Pattern(regexp="^EMP-[0-9]{4}$",message="Enter a valid Employee code.")
     private String employeeCode;
-    @Max(value = 100,message = "Please enter a max of 100 characters")
+    //@Max(value = 100,message = "Please enter a max of 100 characters")
     private String name;
     @Email(message="Please enter a valid Email")
     private String email;

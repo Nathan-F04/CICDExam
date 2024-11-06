@@ -1,6 +1,7 @@
 package ie.atu.cicdexam;
 
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class EmployeeController {
     @PostMapping("/employees")
     public List<Employee> addEmployee(@Valid @RequestBody Employee employee){
         return myEmployee.addEmployeeService(employee);
+        //return ResponseEntity.status(400).body("");
     }
 
     @GetMapping("/employees/{employeeCode}")
