@@ -30,7 +30,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/employees/{employeeCode}")
-    public List<Employee> updateEmployee(@Valid Employee employee, @Valid @PathVariable String employeeCode){
+    public List<Employee> deleteEmployee(@Valid Employee employee, @Valid @PathVariable String employeeCode){
         return myEmployee.deleteEmployeeService(employee, employeeCode);
     }
 
